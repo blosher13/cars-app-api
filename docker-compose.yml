@@ -1,0 +1,22 @@
+version: "3.9"
+# version of the docker-compose syntax to be used
+
+services:
+
+  app:
+  # name of service
+    build:
+      context: .
+      # "build" docker-compose file from inside current/root directory (.)
+      args:
+      - DEV=true
+      # set build arguement called "DEV" and set to true
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+    # mapping directories from local file system into docker comtainer; sycs code   
+
+    # command used to run service; can be overrun
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"

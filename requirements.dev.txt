@@ -1,0 +1,3 @@
+flake8>=4.0.1,<4.1
+
+#only for local dev server and not production
